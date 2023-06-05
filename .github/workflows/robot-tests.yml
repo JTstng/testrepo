@@ -31,3 +31,10 @@ jobs:
     - name: Run Robot Framework tests
       run: |
         robot --outputdir test-reports/ robot_tests/test.robot
+
+    - name: Upload RF test results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: reports
+        path: test-reports/
